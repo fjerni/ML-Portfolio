@@ -1,0 +1,506 @@
+
+/* ========================================
+   FONTS
+======================================== */
+
+@font-face {
+  font-family: 'lemon_milk';
+  src: url('./Fonts/lemon_milk/LEMONMILK-Light.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'lemon_milk_bold';
+  src: url('./Fonts/lemon_milk/LEMONMILK-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Amoria';
+  src: url('./Fonts/amoria/AMORIA.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+/* ========================================
+   BASE STYLES
+======================================== */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px;
+}
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+  position: relative;
+  min-height: 100vh;
+  padding-top: 71px;
+  font-family: 'lemon_milk', sans-serif;
+  background-color: #ffffff;
+  color: #110F0F;
+}
+
+
+/* ========================================
+   CUSTOM CURSOR
+======================================== */
+
+/* Hidden by default */
+.cursor,
+.cursor-glow {
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+/* Small pink cursor */
+.cursor {
+  width: 12px;
+  height: 12px;
+  background: #ebb2b2;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  mix-blend-mode: multiply;
+  transition: transform 0.12s ease;
+}
+
+/* Larger cursor glow */
+.cursor-glow {
+  width: 60px;
+  height: 60px;
+  background: radial-gradient(
+    circle,
+    rgba(255,107,107,0.4) 0%,
+    rgba(255,107,107,0) 70%
+  );
+  transform: translate(-50%, -50%);
+  z-index: 9998;
+  mix-blend-mode: screen;
+  opacity: 0.7;
+  transition:
+    transform 0.2s ease,
+    opacity 0.25s ease;
+}
+
+/* Enable custom cursor for precise mouse-like pointers */
+@media (hover: hover) and (pointer: fine) {
+
+  body,
+  a,
+  button {
+    cursor: none;
+  }
+
+  .cursor,
+  .cursor-glow {
+    display: block;
+  }
+
+}
+
+/* Hide custom cursor for reduced-motion users */
+@media (prefers-reduced-motion: reduce) {
+
+  .cursor,
+  .cursor-glow {
+    display: none;
+  }
+
+  body,
+  a,
+  button {
+    cursor: auto;
+  }
+
+}
+
+
+/* ========================================
+   NAVIGATION
+======================================== */
+
+.horizontal-menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 15px 60px;
+  border-bottom: 1px solid #ccc;
+  font-family: 'lemon_milk', sans-serif;
+  font-size: 14px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #ffffff;
+  z-index: 1000;
+}
+
+.horizontal-menu .logo {
+  font-weight: 600;
+  font-size: 14px;
+  margin-left: 1px;
+}
+
+.horizontal-menu ul {
+  display: flex;
+  list-style: none;
+  gap: 65px;
+  margin: 0;
+  padding: 0;
+}
+
+.horizontal-menu a {
+  color: #110F0F;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.horizontal-menu a:hover {
+  color: #ff6b6b;
+}
+
+/* Visible keyboard navigation */
+.horizontal-menu a:focus-visible {
+  outline: 2px solid #ff6b6b;
+  outline-offset: 6px;
+  border-radius: 2px;
+}
+
+
+/* ========================================
+   HERO AND TYPOGRAPHY
+======================================== */
+
+.hero {
+  position: relative;
+  min-height: 500px;
+}
+
+h1,
+h2 {
+  margin: 0;
+  font-family: 'Amoria', serif;
+  font-weight: lighter;
+  letter-spacing: 0.16em;
+  color: #110F0F;
+  text-align: left;
+}
+
+h1 {
+  font-size: clamp(60px, 10vw, 130px);
+  margin: 0 55px;
+  padding-top: 30px;
+  padding-bottom: 10px;
+}
+
+.h2-container {
+  margin: 0 55px;
+}
+
+.h2-container h2 {
+  font-size: clamp(60px, 10vw, 130px);
+  padding-top: 0;
+  padding-bottom: 20px;
+}
+
+#hi-word,
+#name-text {
+  position: relative;
+  text-align: left;
+}
+
+#name-text {
+  display: block;
+}
+
+
+/* ========================================
+   INTERACTIVE LETTERS
+======================================== */
+
+.letter {
+  display: inline-block;
+  position: relative;
+  z-index: 1;
+  color: #110F0F;
+  transition:
+    transform 0.28s cubic-bezier(.2,.9,.2,1),
+    color 0.28s cubic-bezier(.2,.9,.2,1),
+    text-shadow 0.28s cubic-bezier(.2,.9,.2,1);
+}
+
+.letter.hovered {
+  transform: translateY(-12px);
+  color: #ff6b6b;
+  text-shadow: 0 0 12px rgba(255,107,107,0.7);
+  z-index: 2;
+}
+
+.letter.adjacent-1 {
+  transform: translateY(-6px);
+  color: #ff8d8d;
+  text-shadow: 0 0 8px rgba(255,141,141,0.5);
+  z-index: 2;
+}
+
+.letter.adjacent-2 {
+  transform: translateY(-3px);
+  color: #ffb3b3;
+  text-shadow: 0 0 4px rgba(255,179,179,0.3);
+  z-index: 2;
+}
+
+
+/* ========================================
+   TREE BRANCHES
+======================================== */
+
+.tree-branches {
+  position: absolute;
+  top: 0;
+  right: -900px;
+  width: 50%;
+  height: 400px;
+  pointer-events: all;
+  z-index: 0;
+  overflow: visible;
+}
+
+
+/* ========================================
+   MARQUEE
+======================================== */
+
+.marquee {
+  width: 100%;
+  overflow: hidden;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  padding: 40px 0;
+  margin: 0;
+  font-family: 'lemon_milk', sans-serif;
+  color: #110F0F;
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee-scroll 30s linear infinite;
+}
+
+.marquee-content {
+  display: block;
+  flex-shrink: 0;
+  white-space: nowrap;
+  font-size: 14px;
+  word-spacing: 2em;
+  letter-spacing: 0.2em;
+}
+
+@keyframes marquee-scroll {
+
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+
+}
+
+
+/* ========================================
+   WORK SECTION
+======================================== */
+
+.page-section {
+  scroll-margin-top: 100px;
+}
+
+.my-work {
+  display: block;
+  text-align: left;
+  font-family: 'lemon_milk', sans-serif;
+  font-weight: 300;
+  font-size: clamp(14px, 2vw, 16px);
+  letter-spacing: normal;
+  padding: 30px 40px 12px 61px;
+  margin: 0 auto;
+}
+
+.work-sign {
+  display: block;
+  text-align: center;
+  font-family: 'lemon_milk_bold', sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  padding: 15px 0;
+  margin: 0 auto;
+}
+
+.Lansing-Connect-Description {
+  font-family: 'Poppins', sans-serif;
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 0 20px;
+  line-height: 1.6;
+  text-align: center;
+}
+
+.Lansing-Connect-Description em {
+  font-style: italic;
+}
+
+.splash {
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.splash img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+
+/* ========================================
+   ABOUT AND CONTACT SECTIONS
+======================================== */
+
+.about-section,
+.contact-section {
+  padding: 80px 60px;
+  min-height: 300px;
+}
+
+.about-section {
+  border-top: 1px solid #ccc;
+}
+
+.contact-section {
+  border-top: 1px solid #ccc;
+  padding-bottom: 120px;
+}
+
+.section-heading {
+  font-family: 'Amoria', serif;
+  font-size: clamp(40px, 6vw, 80px);
+  font-weight: lighter;
+  letter-spacing: 0.12em;
+  margin-bottom: 30px;
+}
+
+.section-content {
+  max-width: 650px;
+  font-family: 'lemon_milk', sans-serif;
+  font-size: 14px;
+  line-height: 2;
+}
+
+.section-content p {
+  margin: 0 0 16px;
+}
+
+
+/* ========================================
+   MOBILE RESPONSIVENESS
+======================================== */
+
+@media (max-width: 768px) {
+
+  body {
+    padding-top: 101px;
+  }
+
+  .horizontal-menu {
+    flex-direction: column;
+    gap: 15px;
+    padding: 15px 20px;
+  }
+
+  .horizontal-menu ul {
+    gap: 30px;
+  }
+
+  h1 {
+    margin: 0 20px;
+    padding-top: 15px;
+    padding-bottom: 5px;
+    font-size: clamp(50px, 10vw, 120px);
+  }
+
+  .h2-container {
+    margin: 0 20px;
+  }
+
+  .h2-container h2 {
+    padding-top: 0;
+    padding-bottom: 15px;
+    font-size: clamp(50px, 10vw, 120px);
+  }
+
+  .marquee-content {
+    font-size: 12px;
+  }
+
+  .work-sign {
+    padding-top: 100px;
+  }
+
+  .tree-branches {
+    display: none;
+  }
+
+  .my-work {
+    padding-left: 20px;
+  }
+
+  .about-section,
+  .contact-section {
+    padding: 60px 20px;
+  }
+
+  .page-section {
+    scroll-margin-top: 120px;
+  }
+
+}
+
+
+/* ========================================
+   REDUCED MOTION ACCESSIBILITY
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  .marquee-track {
+    animation: none;
+  }
+
+  .letter {
+    transition: none;
+  }
+
+  .horizontal-menu a {
+    transition: none;
+  }
+
+}
