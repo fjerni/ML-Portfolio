@@ -242,7 +242,7 @@ h1 {
 }
 
 /* ========================================
-   TREE BRANCHES
+   TREE BRANCHES - FIXED
 ======================================== */
 
 .tree-branches {
@@ -827,7 +827,7 @@ h1 {
     font-size: 12px;
   }
 
-  /* Hide the branches and prevent overflow on mobile */
+  /* Hide branches completely on mobile */
   .tree-branches {
     display: none !important;
     pointer-events: none;
