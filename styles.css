@@ -164,7 +164,8 @@ button:focus-visible {
 
 .hero {
   position: relative;
-  min-height: 500px;
+  min-height: 0;
+  isolation: isolate;
 }
 
 h1,
@@ -205,7 +206,7 @@ h1 {
 }
 
 /* ========================================
-   INTERACTIVE LETTERS + GLOW
+   INTERACTIVE LETTER GLOW
 ======================================== */
 
 .letter {
@@ -241,14 +242,14 @@ h1 {
 }
 
 /* ========================================
-   TREE BRANCHES
+   INTERACTIVE TREE BRANCHES
 ======================================== */
 
 .tree-branches {
   position: absolute;
   top: 0;
-  right: -1065px;
-  width: 50%;
+  right: -40px;
+  width: min(65vw, 850px);
   height: 400px;
   pointer-events: all;
   z-index: 0;
@@ -260,6 +261,8 @@ h1 {
 ======================================== */
 
 .marquee {
+  position: relative;
+  z-index: 1;
   width: 100%;
   overflow: hidden;
   border-top: 1px solid #ccc;
@@ -268,6 +271,7 @@ h1 {
   margin: 0;
   font-family: 'lemon_milk', sans-serif;
   color: #110F0F;
+  background: #ffffff;
 }
 
 .marquee-track {
@@ -303,12 +307,11 @@ h1 {
   scroll-margin-top: 100px;
 }
 
-/* Reduced spacing above and below My Work */
 .my-work {
   display: block;
   width: 100%;
   margin: 0;
-  padding: 25px 20px 0;
+  padding: 35px 20px 0;
   text-align: center;
   font-family: 'lemon_milk', sans-serif;
   font-weight: 300;
@@ -316,10 +319,9 @@ h1 {
   letter-spacing: 0.14em;
 }
 
-/* Reduced gap between My Work and Selected Projects */
 .project-gallery {
   max-width: none;
-  margin: 20px 55px 140px;
+  margin: 30px 55px 140px;
   padding: 0;
 }
 
@@ -336,10 +338,8 @@ h1 {
   color: #777;
 }
 
-/* Remove default paragraph top spacing */
 .gallery-eyebrow {
-  margin-top: 0;
-  margin-bottom: 12px;
+  margin: 0 0 12px;
 }
 
 .gallery-heading {
@@ -375,7 +375,6 @@ h1 {
     box-shadow 0.75s cubic-bezier(.22, 1, .36, 1);
 }
 
-/* Animated border overlay */
 .project-frame::after {
   content: '';
   position: absolute;
@@ -407,7 +406,6 @@ h1 {
   opacity: 1;
 }
 
-/* Shorter closed preview */
 .project-preview {
   display: grid;
   grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
@@ -554,6 +552,14 @@ h1 {
   min-height: 0;
 }
 
+.project-cover img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 10px;
+}
+
 .project-image-link {
   display: block;
   width: 100%;
@@ -600,18 +606,13 @@ h1 {
   position: absolute;
   top: 0;
   left: 0;
-
-  /* Render the actual desktop layout */
   width: 1440px;
   height: 810px;
-
   border: 0;
   transform-origin: top left;
-  transform: scale(0.5);
   pointer-events: none;
 }
 
-/* Invisible full-size clickable link */
 .project-live-overlay {
   position: absolute;
   inset: 0;
@@ -831,13 +832,12 @@ h1 {
   }
 
   .my-work {
-    padding: 22px 20px 0;
+    padding: 30px 20px 0;
     text-align: center;
   }
 
   .project-gallery {
-    margin: 18px 20px 80px;
-    padding: 0;
+    margin: 25px 20px 80px;
   }
 
   .gallery-intro {
