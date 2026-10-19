@@ -248,12 +248,22 @@ h1 {
 .tree-branches {
   position: absolute;
   top: 0;
-  right: -1065px;
-  width: 50%;
+  right: -80px;
+  width: 850px;
   height: 400px;
-  pointer-events: all;
+  pointer-events: none;
   z-index: 0;
   overflow: visible;
+}
+
+.tree-branches image {
+  pointer-events: visiblePainted;
+}
+
+@media (max-width: 768px) {
+  .tree-branches {
+    display: none !important;
+  }
 }
 
 /* ========================================
