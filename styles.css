@@ -242,7 +242,7 @@ h1 {
 }
 
 /* ========================================
-   TREE BRANCHES - FIXED
+   TREE BRANCHES
 ======================================== */
 
 .tree-branches {
@@ -250,20 +250,14 @@ h1 {
   top: 0;
   right: -80px;
   width: 850px;
-  height: 400px;
+  height: 500px;
   pointer-events: none;
   z-index: 0;
   overflow: visible;
 }
 
 .tree-branches image {
-  pointer-events: visiblePainted;
-}
-
-@media (max-width: 768px) {
-  .tree-branches {
-    display: none !important;
-  }
+  pointer-events: none;
 }
 
 /* ========================================
@@ -741,6 +735,85 @@ h1 {
 }
 
 /* ========================================
+   PROJECT 3: PRESENTATION SLIDESHOW
+======================================== */
+
+.project-3-cover {
+  overflow: hidden;
+  border-radius: 12px;
+  background: #f5f2ef;
+}
+
+.project-3-cover img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+}
+
+.project-slideshow {
+  max-width: 1050px;
+  margin: 24px auto 0;
+  outline-offset: 6px;
+}
+
+.project-slide {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background-image: url('assets/ai-issue-slides.jpg');
+  background-repeat: no-repeat;
+  background-size: 100% 1200%;
+  background-position: center 0%;
+  background-color: #f7f5f3;
+  border: 1px solid #dedede;
+  border-radius: 12px;
+}
+
+.project-slide-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.project-slide-controls button {
+  background: white;
+  border: 1px solid #110f0f;
+  border-radius: 30px;
+  padding: 12px 18px;
+  color: #110f0f;
+  cursor: pointer;
+  font-family: 'lemon_milk', sans-serif;
+  font-size: 11px;
+}
+
+.project-slide-controls button:hover:not(:disabled) {
+  background: #ff6b6b;
+  border-color: #ff6b6b;
+  color: white;
+}
+
+.project-slide-controls button:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.slide-counter {
+  font-family: 'lemon_milk', sans-serif;
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+}
+
+.slide-instructions {
+  font-family: 'Poppins', sans-serif;
+  font-size: 12px;
+  text-align: center;
+  color: #777;
+  margin: 12px 0 40px;
+}
+
+/* ========================================
    ABOUT / CONTACT
 ======================================== */
 
@@ -837,7 +910,6 @@ h1 {
     font-size: 12px;
   }
 
-  /* Hide branches completely on mobile */
   .tree-branches {
     display: none !important;
     pointer-events: none;
@@ -912,6 +984,11 @@ h1 {
 
   .page-section {
     scroll-margin-top: 120px;
+  }
+
+  .project-slide-controls button {
+    padding: 10px 12px;
+    font-size: 10px;
   }
 }
 
