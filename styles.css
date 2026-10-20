@@ -248,7 +248,7 @@ h1 {
 .tree-branches {
   position: absolute;
   top: 0;
-  right: -80px;
+  right: -350px;
   width: 850px;
   height: 500px;
   pointer-events: none;
