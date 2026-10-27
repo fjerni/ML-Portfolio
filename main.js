@@ -323,75 +323,199 @@ if (livePreviews.length > 0) {
 }
 
 // ========================================
-// PROJECT 3: INTERACTIVE PRESENTATION
+// AI ISSUE: PRESENTATION SLIDESHOW
 // ========================================
 
-const slideshow = document.querySelector('.project-slideshow');
+// Select the presentation specifically, rather than
+// whichever slideshow appears first in the HTML.
 
-if (slideshow) {
-  const slide = slideshow.querySelector('.project-slide');
-  const counter = slideshow.querySelector('.slide-counter');
-  const previous = slideshow.querySelector('.slide-prev');
-  const next = slideshow.querySelector('.slide-next');
+const presentationSlideshow = document.querySelector(
+  '.ai-presentation-section .project-slideshow'
+);
 
-  const total = 12;
-  let current = 0;
+if (presentationSlideshow) {
+  const slide = presentationSlideshow.querySelector(
+    '.project-slide'
+  );
 
-  // DISPLAY SELECTED SLIDE
-  function showSlide(index) {
-    current = Math.max(
-      0,
-      Math.min(total - 1, index)
+  const counter = presentationSlideshow.querySelector(
+    '.slide-counter'
+  );
+
+  const previous = presentationSlideshow.querySelector(
+    '.slide-prev'
+  );
+
+  const next = presentationSlideshow.querySelector(
+    '.slide-next'
+  );
+
+  if (slide && counter && previous && next) {
+    const total = 12;
+    let current = 0;
+
+    function showSlide(index) {
+      current = Math.max(
+        0,
+        Math.min(total - 1, index)
+      );
+
+      // The background image contains 12 stacked slides.
+      const position = current * 100 / (total - 1);
+
+      slide.style.backgroundPosition =
+        `center ${position}%`;
+
+      slide.setAttribute(
+        'aria-label',
+        `Presentation slide ${current + 1} of ${total}`
+      );
+
+      counter.textContent =
+        `${current + 1} / ${total}`;
+
+      previous.disabled = current === 0;
+      next.disabled = current === total - 1;
+    }
+
+    presentationSlideshow.addEventListener(
+      'click',
+      (event) => {
+        event.stopPropagation();
+      }
     );
 
-    // The slide image contains 12 vertically stacked slides.
-    // Move the background to display the selected one.
-    const position = current * 100 / (total - 1);
-
-    slide.style.backgroundPosition =
-      `center ${position}%`;
-
-    slide.setAttribute(
-      'aria-label',
-      `Presentation slide ${current + 1} of ${total}`
-    );
-
-    counter.textContent = `${current + 1} / ${total}`;
-
-    previous.disabled = current === 0;
-    next.disabled = current === total - 1;
-  }
-
-  // PREVENT SLIDESHOW FROM CLOSING PROJECT
-  slideshow.addEventListener('click', (event) => {
-    event.stopPropagation();
-  });
-
-  // PREVIOUS SLIDE
-  previous.addEventListener('click', () => {
-    showSlide(current - 1);
-  });
-
-  // NEXT SLIDE
-  next.addEventListener('click', () => {
-    showSlide(current + 1);
-  });
-
-  // KEYBOARD NAVIGATION
-  slideshow.addEventListener('keydown', (event) => {
-    if (event.key === 'ArrowLeft') {
-      event.preventDefault();
-      event.stopPropagation();
+    previous.addEventListener('click', () => {
       showSlide(current - 1);
-    }
+    });
 
-    if (event.key === 'ArrowRight') {
-      event.preventDefault();
-      event.stopPropagation();
+    next.addEventListener('click', () => {
       showSlide(current + 1);
-    }
-  });
+    });
 
-  // INITIAL SLIDE
-  showSlide(0);
+    presentationSlideshow.addEventListener(
+      'keydown',
+      (event) => {
+        if (event.key === 'ArrowLeft') {
+          event.preventDefault();
+          event.stopPropagation();
+          showSlide(current - 1);
+        }
+
+        if (event.key === 'ArrowRight') {
+          event.preventDefault();
+          event.stopPropagation();
+          showSlide(current + 1);
+        }
+      }
+    );
+
+    showSlide(0);
+  }
+}
+
+// ========================================
+// AI ISSUE: ZINE IMAGE SLIDESHOW
+// ========================================
+
+const zineSlideshow = document.querySelector(
+  '.zine-image-slideshow'
+);
+
+if (zineSlideshow) {
+  const image = zineSlideshow.querySelector(
+    '.zine-slide-image'
+  );
+
+  const counter = zineSlideshow.querySelector(
+    '.slide-counter'
+  );
+
+  const previous = zineSlideshow.querySelector(
+    '.slide-prev'
+  );
+
+  const next = zineSlideshow.querySelector(
+    '.slide-next'
+  );
+
+  if (image && counter && previous && next) {
+    const images = [
+      'AI-Issue-1.jpg',
+      'AI-Issue-2+3.jpg',
+      'AI-Issue-4+5.jpg',
+      'AI-Issue-6+7.jpg',
+      'AI-Issue-8.jpg'
+    ];
+
+    let currentImage = 0;
+
+    function showZineImage(index) {
+      currentImage = Math.max(
+        0,
+        Math.min(images.length - 1, index)
+      );
+
+      image.src = `assets/${images[currentImage]}`;
+
+      image.alt =
+        `The AI Issue Zine, image ${currentImage + 1} of ${images.length}`;
+
+      // First and last images are single pages.
+      // The middle three are double-page spreads.
+      const isSinglePage =
+        currentImage === 0 ||
+        currentImage === images.length - 1;
+
+      image.classList.toggle(
+        'is-single',
+        isSinglePage
+      );
+
+      image.classList.toggle(
+        'is-spread',
+        !isSinglePage
+      );
+
+      counter.textContent =
+        `${currentImage + 1} / ${images.length}`;
+
+      previous.disabled = currentImage === 0;
+      next.disabled = currentImage === images.length - 1;
+    }
+
+    zineSlideshow.addEventListener(
+      'click',
+      (event) => {
+        event.stopPropagation();
+      }
+    );
+
+    previous.addEventListener('click', () => {
+      showZineImage(currentImage - 1);
+    });
+
+    next.addEventListener('click', () => {
+      showZineImage(currentImage + 1);
+    });
+
+    zineSlideshow.addEventListener(
+      'keydown',
+      (event) => {
+        if (event.key === 'ArrowLeft') {
+          event.preventDefault();
+          event.stopPropagation();
+          showZineImage(currentImage - 1);
+        }
+
+        if (event.key === 'ArrowRight') {
+          event.preventDefault();
+          event.stopPropagation();
+          showZineImage(currentImage + 1);
+        }
+      }
+    );
+
+    showZineImage(0);
+  }
 }

@@ -138,8 +138,8 @@ button {
   display: flex;
   list-style: none;
   gap: 65px;
-  margin: 0;
   padding: 0;
+  margin: 0;
 }
 
 .horizontal-menu a {
@@ -333,19 +333,6 @@ h1 {
   margin-bottom: 50px;
 }
 
-.gallery-eyebrow,
-.project-number,
-.detail-eyebrow {
-  font-family: 'lemon_milk', sans-serif;
-  font-size: 12px;
-  letter-spacing: 0.18em;
-  color: #777;
-}
-
-.gallery-eyebrow {
-  margin: 0 0 12px;
-}
-
 .gallery-heading {
   font-family: 'Amoria', serif;
   font-size: clamp(44px, 5.5vw, 80px);
@@ -421,10 +408,6 @@ h1 {
 
 .project-preview-text {
   min-width: 0;
-}
-
-.project-number {
-  margin: 0 0 17px;
 }
 
 .project-title {
@@ -735,7 +718,7 @@ h1 {
 }
 
 /* ========================================
-   PROJECT 3: PRESENTATION SLIDESHOW
+   PRESENTATION SLIDESHOW
 ======================================== */
 
 .project-3-cover {
@@ -814,6 +797,184 @@ h1 {
 }
 
 /* ========================================
+   THE AI ISSUE: CONTEXT AND CHALLENGE
+======================================== */
+
+.zine-story {
+  max-width: 1100px;
+  margin: 65px auto 48px;
+  border-top: 1px solid #dedede;
+}
+
+.zine-story-section {
+  display: grid;
+  grid-template-columns: minmax(170px, 0.34fr) minmax(0, 1fr);
+  column-gap: clamp(24px, 5vw, 80px);
+  padding: 48px 0 54px;
+  border-bottom: 1px solid #dedede;
+}
+
+.zine-story-label {
+  align-self: start;
+}
+
+.zine-story-label h5 {
+  margin: 0;
+  font-family: 'Amoria', serif;
+  font-size: clamp(36px, 3.5vw, 54px);
+  font-weight: 400;
+  line-height: 1.2;
+  color: #110F0F;
+}
+
+.zine-story-copy {
+  max-width: 720px;
+  min-width: 0;
+}
+
+.zine-story-copy p {
+  margin: 0 0 24px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.9;
+  color: #110F0F;
+  overflow-wrap: break-word;
+}
+
+.zine-story-copy p:last-child {
+  margin-bottom: 0;
+}
+
+.zine-story-copy strong {
+  font-weight: 700;
+}
+
+/* ========================================
+   COMPACT ZINE SLIDESHOW
+======================================== */
+
+.zine-image-slideshow {
+  width: 100%;
+  max-width: 760px;
+  margin: 20px auto 55px;
+  padding: 0;
+}
+
+.zine-image-slideshow .zine-slide-image {
+  display: block;
+  width: 100%;
+  max-width: 760px;
+  height: auto;
+  max-height: 470px;
+  margin: 0 auto;
+  object-fit: contain;
+  border: none;
+  border-radius: 6px;
+  background: transparent;
+}
+
+.zine-image-slideshow .zine-slide-image.is-single {
+  width: auto;
+  max-width: 380px;
+  max-height: 470px;
+}
+
+.zine-image-slideshow .zine-slide-image.is-spread {
+  width: 100%;
+  max-width: 760px;
+  max-height: 470px;
+}
+
+.zine-image-slideshow .project-slide-controls {
+  width: 100%;
+  max-width: 600px;
+  margin: 24px auto 0;
+}
+
+/* ========================================
+   AI ISSUE PRESENTATION AT BOTTOM
+======================================== */
+
+.ai-presentation-section {
+  max-width: 1100px;
+  margin: 65px auto 0;
+  padding: 45px clamp(16px, 4vw, 48px) 40px;
+  background: #f6f3f2;
+  border: 1px solid #e6dedb;
+  border-radius: 16px;
+}
+
+.ai-presentation-section .project-slideshow {
+  margin: 0 auto;
+}
+
+.ai-presentation-section .project-slide {
+  background-color: #ffffff;
+  border-color: #ddd5d2;
+  border-radius: 10px;
+}
+
+.ai-presentation-section .project-slide-controls {
+  margin-top: 18px;
+}
+
+/* PDF button visually belongs to the presentation */
+
+.presentation-pdf-action {
+  display: flex;
+  justify-content: center;
+  margin-top: 28px;
+  padding-top: 25px;
+  border-top: 1px solid #e0d8d5;
+}
+
+.presentation-pdf-button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 13px;
+  min-height: 52px;
+  padding: 15px 23px;
+  border: 1px solid #110F0F;
+  border-radius: 40px;
+  background: #110F0F;
+  color: #ffffff;
+  text-decoration: none;
+  font-family: 'lemon_milk', sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.025em;
+  line-height: 1.4;
+  text-align: center;
+  transition:
+    background-color 0.3s ease,
+    border-color 0.3s ease,
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.presentation-pdf-button:hover {
+  background: #ff6b6b;
+  border-color: #ff6b6b;
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 7px 22px rgba(255, 107, 107, 0.22);
+}
+
+.presentation-pdf-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.presentation-pdf-arrow {
+  font-size: 18px;
+  line-height: 1;
+  margin-left: 6px;
+}
+
+/* ========================================
    ABOUT / CONTACT
 ======================================== */
 
@@ -867,6 +1028,11 @@ h1 {
 
   .detail-grid {
     gap: 35px;
+  }
+
+  .zine-story-section {
+    grid-template-columns: minmax(140px, 0.3fr) minmax(0, 1fr);
+    column-gap: 35px;
   }
 }
 
@@ -990,6 +1156,76 @@ h1 {
     padding: 10px 12px;
     font-size: 10px;
   }
+
+  .zine-story {
+    margin-top: 45px;
+    margin-bottom: 35px;
+  }
+
+  .zine-story-section {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 22px;
+    padding: 35px 0 42px;
+  }
+
+  .zine-story-label h5 {
+    font-size: clamp(34px, 8vw, 44px);
+  }
+
+  .zine-story-copy p {
+    font-size: 14px;
+    line-height: 1.85;
+    margin-bottom: 20px;
+  }
+
+  .zine-image-slideshow {
+    max-width: 100%;
+    margin: 20px auto 40px;
+  }
+
+  .zine-image-slideshow .zine-slide-image {
+    max-width: 100%;
+    max-height: 350px;
+  }
+
+  .zine-image-slideshow .zine-slide-image.is-single {
+    width: auto;
+    max-width: 65%;
+    max-height: 350px;
+  }
+
+  .zine-image-slideshow .zine-slide-image.is-spread {
+    width: 100%;
+    max-width: 100%;
+    max-height: 350px;
+  }
+
+  .zine-image-slideshow .project-slide-controls {
+    margin-top: 18px;
+  }
+
+  .ai-presentation-section {
+    margin-top: 40px;
+    padding: 20px 14px 24px;
+    border-radius: 12px;
+  }
+
+  .presentation-pdf-action {
+    margin-top: 20px;
+    padding-top: 20px;
+  }
+
+  .presentation-pdf-button {
+    width: 100%;
+    max-width: 350px;
+    padding: 14px 12px;
+    gap: 9px;
+    font-size: 10px;
+  }
+
+  .presentation-pdf-arrow {
+    margin-left: 2px;
+  }
 }
 
 /* ========================================
@@ -1013,7 +1249,8 @@ h1 {
   .project-frame::after,
   .project-details,
   .project-details-inner,
-  .project-live-preview {
+  .project-live-preview,
+  .presentation-pdf-button {
     transition: none !important;
   }
 

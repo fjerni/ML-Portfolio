@@ -9,11 +9,9 @@
 </head>
 
 <body>
-  <!-- Custom cursor -->
   <div class="cursor" aria-hidden="true"></div>
   <div class="cursor-glow" aria-hidden="true"></div>
 
-  <!-- Navigation -->
   <nav class="horizontal-menu" aria-label="Main navigation">
     <div class="logo">Miranda Lachniet</div>
     <ul>
@@ -23,7 +21,6 @@
     </ul>
   </nav>
 
-  <!-- Hero -->
   <header class="hero">
     <h1 class="title-text">
       <span id="hi-word">Hi</span>,
@@ -34,7 +31,6 @@
       <h2 id="name-text">Miranda</h2>
     </div>
 
-    <!-- Interactive tree branches -->
     <svg
       id="tree"
       class="tree-branches"
@@ -43,7 +39,6 @@
       aria-hidden="true">
     </svg>
 
-    <!-- Scrolling marquee -->
     <div class="marquee" aria-hidden="true">
       <div class="marquee-track">
         <span class="marquee-content">
@@ -68,13 +63,11 @@
   </header>
 
   <main>
-    <!-- WORK SECTION -->
     <section id="work" class="page-section">
       <h2 class="my-work">My work</h2>
 
       <div class="project-gallery">
         <div class="gallery-intro">
-          <p class="gallery-eyebrow">SELECTED PROJECTS</p>
           <h3 class="gallery-heading">Explore my Work</h3>
           <p class="gallery-description">
             These projects come from my time across academia
@@ -82,14 +75,10 @@
           </p>
         </div>
 
-        <!-- ========================================
-             PROJECT 1: TIFF WEBSITE
-        ======================================== -->
+        <!-- PROJECT 1: TIFF WEBSITE -->
         <article class="project-frame">
           <div class="project-preview">
             <div class="project-preview-text">
-              <p class="project-number">WEB DESIGN</p>
-
               <h4 class="project-title">
                 My "Nifty TIFFty" Marathon
               </h4>
@@ -138,7 +127,6 @@
 
             <div class="project-details-inner">
               <div class="detail-heading">
-                <p class="detail-eyebrow">THE PROCESS</p>
                 <h5>Behind the design</h5>
               </div>
 
@@ -200,14 +188,10 @@
           </div>
         </article>
 
-        <!-- ========================================
-             PROJECT 2: LANSING CONNECT
-        ======================================== -->
+        <!-- PROJECT 2: LANSING CONNECT -->
         <article class="project-frame">
           <div class="project-preview">
             <div class="project-preview-text">
-              <p class="project-number">UX DESIGN</p>
-
               <h4 class="project-title">
                 Lansing Connect
               </h4>
@@ -246,7 +230,6 @@
 
             <div class="project-details-inner">
               <div class="detail-heading">
-                <p class="detail-eyebrow">THE PROCESS</p>
                 <h5>Behind the design</h5>
               </div>
 
@@ -309,14 +292,10 @@
           </div>
         </article>
 
-        <!-- ========================================
-             PROJECT 3: THE AI ISSUE ZINE
-        ======================================== -->
+        <!-- PROJECT 3: THE AI ISSUE -->
         <article class="project-frame">
           <div class="project-preview">
             <div class="project-preview-text">
-              <p class="project-number">GRAPHIC DESIGN · GD 491</p>
-
               <h4 class="project-title">
                 The “AI Issue” Zine
               </h4>
@@ -341,7 +320,7 @@
             <div class="project-cover project-3-cover">
               <img
                 src="assets/ai-issue-cover.jpg"
-                alt="Cover slide of The AI Issue zine presentation"
+                alt="Cover of The AI Issue project"
                 loading="lazy">
             </div>
           </div>
@@ -352,103 +331,316 @@
             hidden>
 
             <div class="project-details-inner">
-              <div class="detail-heading">
-                <p class="detail-eyebrow">GD 491 · FINAL PROJECT</p>
-                <h5>The “AI Issue” Zine</h5>
-              </div>
 
-              <div class="detail-grid">
-                <div class="detail-text">
-                  <h6>The challenge</h6>
-                  <p>
-                    Help people unfamiliar with AI understand large
-                    language models, their limitations, and the wider
-                    effects of AI without overwhelming them.
-                  </p>
-                </div>
-
-                <div class="detail-text">
-                  <h6>My approach</h6>
-                  <p>
-                    I shifted from an interactive website to a
-                    physical zine, using approachable writing and
-                    magazine-inspired design to invite curiosity.
-                  </p>
-                </div>
-              </div>
-
-              <!-- INTERACTIVE 12-SLIDE PRESENTATION -->
+              <!-- ZINE SLIDESHOW -->
               <div
-                class="project-slideshow"
-                aria-label="The AI Issue project presentation"
+                class="project-slideshow zine-image-slideshow"
+                aria-label="The AI Issue zine pages"
                 tabindex="0">
 
-                <div
-                  class="project-slide"
-                  role="img"
-                  aria-label="Presentation slide 1 of 12">
-                </div>
+                <img
+                  class="zine-slide-image"
+                  src="assets/AI-Issue-1.jpg"
+                  alt="The AI Issue zine, image 1 of 5">
 
                 <div class="project-slide-controls">
                   <button
                     type="button"
                     class="slide-prev"
-                    aria-label="Previous slide">
+                    aria-label="Previous zine image">
                     ← Previous
                   </button>
 
                   <span
                     class="slide-counter"
                     aria-live="polite">
-                    1 / 12
+                    1 / 5
                   </span>
 
                   <button
                     type="button"
                     class="slide-next"
-                    aria-label="Next slide">
+                    aria-label="Next zine image">
                     Next →
                   </button>
                 </div>
               </div>
 
-              
+              <!-- PROJECT WRITING -->
+              <div class="zine-story">
 
-              <div class="detail-grid">
-                <div class="detail-text">
-                  <h6>The outcome</h6>
-                  <p>
-                    A zine concept that explains LLMs and explores
-                    AI sycophancy and environmental impact in a
-                    format designed to be shared around campus.
-                  </p>
+                <section
+                  class="zine-story-section"
+                  aria-labelledby="zine-context">
+
+                  <h5 id="zine-context">Context</h5>
+
+                  <div class="zine-story-copy">
+                    <p>
+                      This zine was created in response to
+                      Zach Kaiser’s
+                      <em>Special Topics in Graphic Design</em>
+                      course.
+                    </p>
+
+                    <p>
+                      My interest in AI predates the current
+                      hype/hysteria surrounding it. As a child,
+                      I spent hours experimenting with early
+                      chatbots like Cleverbot, which could barely
+                      remember a conversation a few lines in
+                      before becoming lost and/ or insane,
+                      messing around with the primitive AI of
+                      <em>Façade</em>, and watching the well of
+                      training data of bots be poisoned by bad
+                      actors (RIP Tay.) AI has fascinated me
+                      long before it became a cultural obsession,
+                      and because of that I am often especially
+                      aware of the way people engage with and
+                      understand it.
+                    </p>
+
+                    <p>
+                      Throughout the course, we examined AI
+                      from every angle. The controversy
+                      surrounding AI is difficult to define,
+                      as its impacts intersect with issues of
+                      geography, class, labor, and accessibility.
+                      Someone living in the Global South may
+                      experience AI very differently from a
+                      student using it in the United States.
+                      As AI tools become increasingly widespread,
+                      understanding these differing experiences
+                      becomes essential. Navigating AI’s role
+                      in society requires an empathetic,
+                      human-centered approach.
+                    </p>
+                  </div>
+                </section>
+
+                <section
+                  class="zine-story-section"
+                  aria-labelledby="zine-challenge">
+
+                  <h5 id="zine-challenge">Challenge</h5>
+
+                  <div class="zine-story-copy">
+                    <p>
+                      From the beginning of the course, I knew
+                      I wanted to explore how
+                      <strong><em>people</em></strong>
+                      interact with AI and what shapes their
+                      opinions of it. With such an emotionally
+                      charged debate, I wanted to approach the
+                      subject with empathy, curiosity, and an
+                      open mind. Our assignment was to create
+                      a design response to the course materials
+                      that would encourage people to think
+                      critically about the subject.
+                    </p>
+
+                    <p>
+                      I chose to create a zine, allowing my
+                      interpretation of AI to remain physically
+                      unchanging as technology and public
+                      attitudes continue to shift. In academic
+                      spaces, it's easy to fall into ideological
+                      bubbles, so I wanted to create something
+                      that would catch the attention of people
+                      who weren't necessarily interested in AI.
+                    </p>
+
+                    <p>
+                      My challenge was to use design and rhetoric
+                      to get people thinking critically about
+                      AI use without immediately turning them
+                      away. This was difficult because AI use
+                      is so often treated as a moral issue.
+                      I had to consider how language, layout,
+                      and imagery might influence someone's
+                      interpretation of the subject. AI is so
+                      caught up in controversy and optics that
+                      I wanted to approach it without that
+                      baggage. My goal was to present the subject
+                      fairly, encouraging people to ask their
+                      own questions rather than telling them
+                      what to think.
+                    </p>
+                  </div>
+                </section>
+
+                <section
+                  class="zine-story-section"
+                  aria-labelledby="zine-role">
+
+                  <h5 id="zine-role">Role</h5>
+
+                  <div class="zine-story-copy">
+                    <p>
+                      Creating the zine involved extensive
+                      research. Drawing from course readings
+                      and outside sources, I narrowed my focus
+                      to a few key issues within AI discourse.
+                      Katie Singer’s Substack was particularly
+                      influential, as I found her blunt,
+                      straightforward approach to communicating
+                      complex issues especially effective.
+                    </p>
+
+                    <p>
+                      The design process was recursive. Every
+                      new point required me to reconsider
+                      whether I was communicating the information
+                      accurately and fairly. Simplifying such
+                      a complex subject came with three challenges:
+                      preserving important information,
+                      acknowledging the real ecological,
+                      economic, and social harms of AI, and,
+                      most importantly, avoiding language that
+                      might shame or belittle readers for their
+                      AI use. If readers felt judged or talked
+                      down to, they likely wouldn't engage
+                      with the zine in the first place.
+                      I wanted to make these issues understandable
+                      to someone unfamiliar with the subject
+                      without watering them down or turning
+                      people away.
+                    </p>
+                  </div>
+                </section>
+
+                <section
+                  class="zine-story-section"
+                  aria-labelledby="zine-process">
+
+                  <h5 id="zine-process">Process</h5>
+
+                  <div class="zine-story-copy">
+                    <p>
+                      The decision to create a zine came from
+                      class discussions and my own experiences
+                      with the medium. One issue I've noticed
+                      with zines is that they tend to appeal
+                      to people who already read them, an
+                      audience that may also be more inclined
+                      to hold anti-AI views. I wanted to reach
+                      beyond that audience, so I used sleek,
+                      AI-inspired and editorial visuals to catch
+                      people's attention and distinguish the
+                      project from traditional zines.
+                    </p>
+
+                    <p>
+                      Calling it the AI “Issue,” like an issue
+                      of a magazine, was another way to separate
+                      the project from the social associations
+                      of its medium while creating a more striking
+                      visual identity. The content informed the
+                      presentation: the sleek, AI inspired
+                      aesthetic was also a rhetorical choice,
+                      poking fun at the homogeneity of AI
+                      driven web design.
+                    </p>
+                  </div>
+                </section>
+
+                <section
+                  class="zine-story-section"
+                  aria-labelledby="zine-conclusion">
+
+                  <h5 id="zine-conclusion">Conclusion</h5>
+
+                  <div class="zine-story-copy">
+                    <p>
+                      While I learned a lot about AI throughout
+                      this project, what interested me most was
+                      how <em>people</em> engage with it.
+                      A technology is only as powerful as the
+                      way it's used, and people's understanding
+                      of how AI works shapes how they interact
+                      with it socially, economically, and
+                      politically. As AI continues to evolve
+                      and cause discourse, presenting information
+                      about it in a clear, human-centered way
+                      is more important than ever.
+                    </p>
+                  </div>
+                </section>
+
+              </div>
+
+              <!-- PRESENTATION SLIDESHOW -->
+              <div class="ai-presentation-section">
+                <div
+                  class="project-slideshow"
+                  aria-label="The AI Issue project presentation"
+                  tabindex="0">
+
+                  <div
+                    class="project-slide"
+                    role="img"
+                    aria-label="Presentation slide 1 of 12">
+                  </div>
+
+                  <div class="project-slide-controls">
+                    <button
+                      type="button"
+                      class="slide-prev"
+                      aria-label="Previous presentation slide">
+                      ← Previous
+                    </button>
+
+                    <span
+                      class="slide-counter"
+                      aria-live="polite">
+                      1 / 12
+                    </span>
+
+                    <button
+                      type="button"
+                      class="slide-next"
+                      aria-label="Next presentation slide">
+                      Next →
+                    </button>
+                  </div>
                 </div>
 
-                <div class="detail-text">
-                  <h6>Reflection</h6>
-                  <p>
-                    Balancing accessibility with a direct discussion
-                    of difficult issues shaped the project's writing,
-                    visual direction, and final format.
-                  </p>
+                <div class="presentation-pdf-action">
+                  <a
+                    class="presentation-pdf-button"
+                    href="assets/Portfolio GD Final Project.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="View The AI Issue presentation as PDF, opens in a new tab">
+
+                    <svg
+                      viewBox="0 0 24 24"
+                      width="19"
+                      height="19"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.7"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true">
+                      <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                      <polyline points="14 2 14 8 20 8"/>
+                      <path d="M8 13h8"/>
+                      <path d="M8 17h6"/>
+                    </svg>
+
+                    <span>View Presentation as PDF</span>
+                    <span aria-hidden="true">↗</span>
+                  </a>
                 </div>
               </div>
 
-              <a
-                class="project-external-link"
-                href="assets/Portfolio GD Final Project.pdf"
-                target="_blank"
-                rel="noopener noreferrer">
-                View full presentation as PDF ↗
-              </a>
             </div>
           </div>
         </article>
-
       </div>
     </section>
 
-    <!-- ABOUT SECTION -->
     <section id="about" class="page-section about-section">
       <h2 class="section-heading">About</h2>
 
@@ -460,7 +652,6 @@
       </div>
     </section>
 
-    <!-- CONTACT SECTION -->
     <section id="contact" class="page-section contact-section">
       <h2 class="section-heading">Contact</h2>
 
