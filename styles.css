@@ -5,21 +5,21 @@
 
 @font-face {
   font-family: 'lemon_milk';
-  src: url('./Fonts/lemon_milk/LEMONMILK-Light.otf') format('opentype');
+  src: url('./fonts/lemon_milk/LEMONMILK-Light.otf') format('opentype');
   font-weight: 300;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'lemon_milk_bold';
-  src: url('./Fonts/lemon_milk/LEMONMILK-Bold.otf') format('opentype');
+  src: url('./fonts/lemon_milk/LEMONMILK-Bold.otf') format('opentype');
   font-weight: 700;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Amoria';
-  src: url('./Fonts/amoria/AMORIA.otf') format('opentype');
+  src: url('./fonts/amoria/AMORIA.otf') format('opentype');
   font-weight: 400;
   font-style: normal;
 }
