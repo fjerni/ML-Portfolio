@@ -443,11 +443,13 @@ if (zineSlideshow) {
     const images = [
       'AI-Issue-1.jpg',
       'AI-Issue-2+3.jpg',
+      'GD missing slide.jpg',
       'AI-Issue-4+5.jpg',
       'AI-Issue-6+7.jpg',
       'AI-Issue-8.jpg'
     ];
 
+    
     let currentImage = 0;
 
     function showZineImage(index) {
