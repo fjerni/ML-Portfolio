@@ -1,3 +1,18 @@
+// Keep anchor destinations immediately below the fixed navigation.
+const mainNavigation = document.querySelector('.horizontal-menu');
+
+if (mainNavigation) {
+  const updateNavigationHeight = () => {
+    document.documentElement.style.setProperty(
+      '--navigation-height',
+      `${mainNavigation.getBoundingClientRect().height}px`
+    );
+  };
+
+  updateNavigationHeight();
+  new ResizeObserver(updateNavigationHeight).observe(mainNavigation);
+}
+
 
 // ========================================
 // CUSTOM CURSOR
@@ -162,119 +177,6 @@ function applyHoverEffects(elementId) {
 
 applyHoverEffects('hi-word');
 applyHoverEffects('name-text');
-
-// ========================================
-// PROJECT PANEL INTERACTIONS
-// ========================================
-
-const projectFrames = document.querySelectorAll(
-  '.project-frame'
-);
-
-projectFrames.forEach((frame) => {
-  const button = frame.querySelector('.project-toggle');
-
-  if (!button) return;
-
-  const detailsId = button.getAttribute('aria-controls');
-  const details = document.getElementById(detailsId);
-
-  const icon = button.querySelector('.toggle-icon');
-  const label = button.querySelector('.toggle-label');
-
-  if (!details) return;
-
-  let isExpanded = false;
-
-  details.hidden = false;
-  details.style.height = '0px';
-  details.classList.remove('is-expanded');
-
-  frame.classList.remove('is-open');
-
-  details.inert = true;
-  details.setAttribute('aria-hidden', 'true');
-  button.setAttribute('aria-expanded', 'false');
-
-  if (icon) {
-    icon.textContent = '+';
-  }
-
-  // OPEN / CLOSE PROJECT
-  function setProjectState(expand) {
-    const reduceMotion = reducedMotionQuery.matches;
-
-    const currentHeight =
-      details.getBoundingClientRect().height;
-
-    details.style.height = `${currentHeight}px`;
-
-    void details.offsetHeight;
-
-    isExpanded = expand;
-
-    frame.classList.toggle('is-open', expand);
-    details.classList.toggle('is-expanded', expand);
-
-    button.setAttribute(
-      'aria-expanded',
-      String(expand)
-    );
-
-    details.inert = !expand;
-
-    details.setAttribute(
-      'aria-hidden',
-      String(!expand)
-    );
-
-    if (label) {
-      label.textContent = expand
-        ? 'Close project'
-        : 'Explore project';
-    }
-
-    if (icon) {
-      icon.textContent = expand ? '−' : '+';
-    }
-
-    if (reduceMotion) {
-      details.style.height = expand ? 'auto' : '0px';
-      return;
-    }
-
-    details.style.height = expand
-      ? `${details.scrollHeight}px`
-      : '0px';
-  }
-
-  // Clicking the preview toggles the project.
-  // Clicking links or controls inside expanded details
-  // does not collapse the project.
-  frame.addEventListener('click', (event) => {
-    if (event.target.closest('a')) return;
-
-    if (event.target.closest('.project-details')) {
-      return;
-    }
-
-    setProjectState(!isExpanded);
-  });
-
-  // COMPLETE HEIGHT ANIMATION
-  details.addEventListener('transitionend', (event) => {
-    if (
-      event.target !== details ||
-      event.propertyName !== 'height'
-    ) {
-      return;
-    }
-
-    if (isExpanded) {
-      details.style.height = 'auto';
-    }
-  });
-});
 
 // ========================================
 // RESPONSIVE LIVE TIFF WEBSITE PREVIEW
@@ -521,3 +423,72 @@ if (zineSlideshow) {
     showZineImage(0);
   }
 }
+
+// Align the resume button with the portrait’s lower edge as its size changes.
+const aboutHeadshot = document.querySelector('.about-headshot');
+if (aboutHeadshot) {
+  const updateHeadshotHeight = () => {
+    aboutHeadshot.closest('.about-section').style.setProperty(
+      '--headshot-height',
+      `${aboutHeadshot.getBoundingClientRect().height}px`
+    );
+  };
+  updateHeadshotHeight();
+  new ResizeObserver(updateHeadshotHeight).observe(aboutHeadshot);
+}
+
+
+/* GALLERY SECTION */
+/* Load with defer. Duplicate a tile in gallery.html to add more artwork. */
+(() => {
+  const init = () => document.querySelectorAll('[data-ml-gallery]').forEach(section => {
+    if (section.dataset.ready) return;
+    section.dataset.ready = 'true';
+    const track = section.querySelector('.ml-gallery__track');
+    const previous = section.querySelector('[data-gallery-prev]');
+    const next = section.querySelector('[data-gallery-next]');
+    const dialog = section.querySelector('dialog');
+    const largeImage = dialog.querySelector('img');
+    const caption = dialog.querySelector('figcaption');
+    let opener;
+    const update = () => {
+      previous.disabled = track.scrollLeft <= 2;
+      next.disabled = track.scrollLeft >= track.scrollWidth - track.clientWidth - 2;
+    };
+    const move = direction => track.scrollBy({ left: direction * (track.clientWidth + 20), behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' });
+    previous.addEventListener('click', () => move(-1));
+    next.addEventListener('click', () => move(1));
+    track.addEventListener('scroll', update, { passive: true });
+    track.addEventListener('keydown', event => {
+      if (event.key === 'ArrowRight' || event.key === 'ArrowLeft') {
+        event.preventDefault();
+        move(event.key === 'ArrowRight' ? 1 : -1);
+      }
+    });
+    section.querySelectorAll('.ml-gallery__tile').forEach(tile => {
+      tile.addEventListener('focus', () => tile.scrollIntoView({ block: 'nearest', inline: 'nearest' }));
+      tile.addEventListener('click', () => {
+        opener = tile;
+        const thumbnail = tile.querySelector('img');
+        largeImage.src = tile.dataset.full || thumbnail.src;
+        largeImage.alt = thumbnail.alt;
+        caption.textContent = tile.dataset.caption || thumbnail.alt;
+        dialog.showModal();
+        document.documentElement.classList.add('ml-gallery-modal-open');
+      });
+    });
+    dialog.querySelector('button').addEventListener('click', () => dialog.close());
+    dialog.addEventListener('click', event => {
+      const rect = dialog.getBoundingClientRect();
+      if (event.target === dialog && (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom)) dialog.close();
+    });
+    dialog.addEventListener('close', () => {
+      document.documentElement.classList.remove('ml-gallery-modal-open');
+      opener?.focus({ preventScroll: true });
+    });
+    new ResizeObserver(update).observe(track);
+    update();
+  });
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+  else init();
+})();
