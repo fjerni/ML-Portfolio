@@ -1,0 +1,11 @@
+Replace index.html and add contact.css and contact-thanks.html beside styles.css and main.js.
+This form uses Netlify Forms; local previews do not process submissions.
+In your Netlify site, enable form detection under Forms, then deploy these files.
+After deployment, confirm portfolio-contact appears under Forms.
+Go to Forms > Submission notifications > Add notification > Email notification.
+Select portfolio-contact and use the email address you want to receive submissions.
+Netlify requires new notification email addresses to belong to a member of the Netlify team. If using lachnie3@msu.edu, connect that address to your Netlify team first if needed.
+Submit a test on the deployed site and confirm both the recorded submission and email delivery.
+The three visible fields are Your email, Subject and Message. All are required. The email field validates an email address and uses the name email so Netlify can set the notification reply-to address.
+Docs: https://docs.netlify.com/manage/forms/setup/
+Notifications: https://docs.netlify.com/manage/forms/notifications/
