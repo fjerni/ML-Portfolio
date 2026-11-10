@@ -953,8 +953,9 @@ h1 {
 }
 
 .about-section {
+  --about-bio-width: 360px;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 360px) minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1fr) minmax(0, var(--about-bio-width)) minmax(0, 1fr);
   align-items: start;
   column-gap: clamp(24px, 3vw, 40px);
   row-gap: 20px;
@@ -975,7 +976,9 @@ h1 {
 
 .about-section .section-heading {
   grid-column: 1 / -1;
-  text-align: center;
+  justify-self: center;
+  width: min(100%, var(--about-bio-width));
+  text-align: left;
   margin: 0;
   font-size: clamp(30px, 3.5vw, 44px);
   line-height: 1.2;
@@ -1080,7 +1083,7 @@ h1 {
 
 @media (max-width: 1000px) {
   .about-section {
-    grid-template-columns: minmax(0, 1fr) minmax(0, 300px) minmax(0, 1fr);
+    --about-bio-width: 300px;
   }
 
 
@@ -1215,6 +1218,7 @@ h1 {
   }
 
   .about-section {
+    --about-bio-width: 650px;
     grid-template-columns: minmax(0, 1fr);
     gap: 24px;
     margin: 0 20px;
